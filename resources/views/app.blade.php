@@ -8,7 +8,7 @@
     @inertiaHead
 </head>
 
-<body>
+<body class="container">
     @inertia
 </body>
 
