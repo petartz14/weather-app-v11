@@ -66,12 +66,17 @@ const search = () => {
                 Search Filter
             </div>
             <div v-if="choose === 'openWeather'">
-                <TextInput
-                    v-model="keyword"
-                    type="text"
-                    placeholder="Search City add comma seperation for country code"
-                    :error="errors['keyword']"
-                />
+                <div>
+                    <label for="city" class="text-sm">
+                        City <span class="text-red-500">*</span>
+                    </label>
+                    <TextInput
+                        v-model="keyword"
+                        type="text"
+                        placeholder="Search City add comma seperation for country code"
+                        :error="errors['keyword']"
+                    />
+                </div>
             </div>
             <div
                 v-if="choose === 'fourSquare'"
@@ -96,7 +101,9 @@ const search = () => {
                     />
                 </div>
                 <div>
-                    <label for="near" class="text-sm">Near</label>
+                    <label for="near" class="text-sm">
+                        Near <span class="text-red-500">*</span>
+                    </label>
                     <TextInput
                         v-model="fourSquare.near"
                         type="text"

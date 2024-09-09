@@ -73,5 +73,13 @@ defineProps({
                 </div>
             </div>
         </div>
+
+        <div class="mt-6">
+            <a href="/">
+                <span class="bg-red-500 text-white px-4 py-3 rounded-md">
+                    Back
+                </span>
+            </a>
+        </div>
     </div>
 </template>
