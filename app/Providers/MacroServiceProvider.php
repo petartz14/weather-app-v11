@@ -15,7 +15,15 @@ class MacroServiceProvider extends ServiceProvider
         Http::macro('openWeather', function ($value) {
             return Http::get('https://api.openweathermap.org/data/2.5/forecast', [
                 'q' => $value,
-                'appid' => config('WEATHER.openweather_api_key')
+                'appid' => config('weather.openweather_api_key')
+            ]);
+        });
+
+        Http::macro('fourSquare', function ($query) {
+            return Http::get('https://api.foursquare.com/v2/venues/search', [
+                ...$query,
+                'v' => '20231010',
+                'oauth_token' => 'CCD2OZ3UR2OULSILGMJOBSEUNVG4GGH0PPSAMNOOFGR3VSTH'
             ]);
         });
     }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\WeatherService;
 use Illuminate\Http\Request;
-use WeatherService;
 
 class HomeController extends Controller
 {
@@ -12,7 +12,7 @@ class HomeController extends Controller
         return inertia('Home');
     }
 
-    public function search(Request $request, WeatherService $weatherService)
+    public function openWeatherSearch(Request $request, WeatherService $weatherService)
     {
         $request->validate([
             'keyword' => ['required']
@@ -20,6 +20,22 @@ class HomeController extends Controller
 
         $data = $weatherService->openweather($request->input('keyword'));
 
-        dd($data);
+        return inertia('Show', [
+            'data' => $data
+        ]);
+    }
+
+    public function fourSquareSearch(Request $request, WeatherService $weatherService)
+    {
+        $request->validate([
+            'near' => ['required']
+        ]);
+
+
+        $data = $weatherService->fourSquare($request->all());
+
+        return inertia('FourSquareShow', [
+            'data' => $data
+        ]);
     }
 }

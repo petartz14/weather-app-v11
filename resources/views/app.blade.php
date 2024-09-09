@@ -9,7 +9,7 @@
     @inertiaHead
 </head>
 
-<body class="container mx-auto">
+<body class="container mx-auto p-3 md:p-6 mt-5">
     @inertia
 </body>
 
